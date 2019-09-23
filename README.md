@@ -1,5 +1,4 @@
-# Algorithm
-Code Examples: ![travis_ci](https://travis-ci.org/bitcoinbook/bitcoinbook.svg?branch=develop)
+# Algorithm ![travis_ci](https://travis-ci.org/bitcoinbook/bitcoinbook.svg?branch=develop)
 
 这个仓库用于算法刷题
 
