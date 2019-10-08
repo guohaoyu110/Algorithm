@@ -42,6 +42,32 @@ public:
     }
 };
 
+//方法二：时间复杂度更低一些，达到了题目的时间复杂度的要求
+class Solution{
+  public:
+    int removeDuplicates(vector<int>& nums){
+        int i=0,j=0;
+        if (nums.size()==0)
+            return 0;
+        int len = 0;
+        for(i=1;i<nums.size();i++)
+        {
+            if (nums[len]!=nums[i])
+                nums[++len] = nums[i];
+        }
+        return len+1;
+        //return i;
+    }
+};
+
+
+
+
+
+
+
+
+
 
 
 
