@@ -39,6 +39,7 @@ public:
 };
 
 //写一种更通用的方法，便于联系起来理解，和3sum的方法本质上是一样的
+//思路还是很清晰的，最重要的还是关注临界条件！！！
 class Solution {
 public:
     //肯定要剪枝，最常规的方法，还是要三重循环
@@ -69,7 +70,6 @@ public:
                         res.push_back(nums[i]);res.push_back(nums[j]);res.push_back(nums[k]);
                         res.push_back(p);
                         result.push_back(res);
-                        
                         res.clear();
                     }
                 }
