@@ -1,27 +1,3 @@
-/*class Solution {
-public:
-    int jump(vector<int>& nums) {
-        //每个动作是基于前面变化的，是不是应该用动态规划？
-        //和55那道题目对应起来去看
-        //使用最少的跳跃次数到达数组的最后一个位置
-        int max=0;
-        int jump = nums[0];
-        int count = 0;
-        for(int i=0;i<nums.size();i++)
-        {
-            if (nums[i]+i>=nums.size()-1)
-            {
-                count++;
-                return count;
-            }            
-            
-            jump = max(nums[i],1);
-        }
-        
-        return count;
-    }
-};
-*/
 class Solution {
 public:
     int jump(vector<int>& nums) {

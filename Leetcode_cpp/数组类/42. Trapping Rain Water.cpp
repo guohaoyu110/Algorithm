@@ -8,8 +8,6 @@ public:
                 maxIndex = i;
             }
         }
-        
-        
         int sum = 0;
         maxHeight = 0;
         // 记录前缀最大值
