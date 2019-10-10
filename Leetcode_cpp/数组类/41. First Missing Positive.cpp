@@ -37,3 +37,33 @@ public:
     }
 };
 //一定有更好的方法，虽然时间复杂度和方法都达到要求了，但是思路不够清晰明了。
+//方法二，自己写的，击败了百分百的用户hh，这种思路还是比较常规的思路，尤其在这道题目的场景下
+class Solution {
+public:
+    int firstMissingPositive(vector<int>& nums) {
+        sort(nums.begin(),nums.end());
+        int j=0;
+        if (nums.size()<1) return 1;
+        
+        if (nums[0]>0) j++;
+        for(int i=1;i<nums.size();i++)
+        {
+            if (nums[i]>0&&nums[i]!=nums[i-1])
+            {
+                nums[j] = nums[i];
+                j++;
+            }
+        }
+        for(int j=0;j<nums.size();j++)
+        {
+           if (j==0&&nums[j]!=1)
+            {
+                return 1;
+            }
+            if (j>0&&nums[j]!=nums[j-1]+1)                    
+                return nums[j-1]+1;
+            //j++; 
+        }
+        return nums.size()+1;
+    }
+};

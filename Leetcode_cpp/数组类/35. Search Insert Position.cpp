@@ -1,10 +1,8 @@
-/*
+//方法一
 //最基础和容易想到的解法
 class Solution {
 public:
     int searchInsert(vector<int>& nums, int target) {
-        //用map来查找
-        //这个数组本来就排好序了
         for(int i=0;i<nums.size();i++)
         {
             if(target==nums[i])
@@ -19,7 +17,7 @@ public:
         return 0;
     }
 };
-*/
+//方法二：
 class Solution {
 public:
     //二分法的high最好比最后一个数值位数大一个
