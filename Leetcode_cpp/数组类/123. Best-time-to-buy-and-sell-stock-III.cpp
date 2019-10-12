@@ -1,30 +1,3 @@
-/*class Solution {
-public:
-    int maxProfit(vector<int>& nums) {
-        //最多可以完成两笔交易
-        int min = 0;
-        int target=nums[0];
-        //如何得到一开始增长的那个数字
-        for(int i=1;i<nums.size();i++)
-        {
-            if (nums[i]>=nums[i-1])
-            {
-                if (i!=nums.size()-1)
-                {
-                    target=std::min(target,nums[i]);
-                    i++;
-                }                
-                else
-                {min += nums[i]-target; return min;}
-            }
-            else 
-                min+=nums[i-1]-target;
-            
-        }
-        
-        return min;
-    }
-};*/
 //自己写错了，还是看答案吧
 class Solution {
 public:
@@ -54,5 +27,27 @@ public:
         }
         
         return best;
+    }
+};
+
+//方法二：
+class Solution {
+public:
+    //最多可以完成两笔交易，最少一笔交易都没有完成
+    int maxProfit(vector<int> &prices) {
+        if (prices.size() == 0) {
+            return 0;
+        }    
+        int hold1 = INT_MIN, hold2=INT_MIN;
+        int release1=0, release2=0;
+        for(int i:prices)
+        {
+            release2=max(release2,hold2+i);
+            hold2 = max(hold2,release1-i); 
+            release1 = max(release1, hold1+i);
+            hold1 = max(hold1, -i);
+        }
+        
+        return release2;
     }
 };
