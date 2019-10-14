@@ -25,3 +25,23 @@ public:
         return max;
     }
 };
+
+//方法二
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+       //连续子数组，求得最大和
+        //首先，第一个数肯定是正数
+        int sum =0;
+        int minSum =0;
+        int maxSum = INT_MIN;//这个数值究竟是多大啊
+        for(int i=0;i<nums.size();i++)
+        {
+            sum +=nums[i];
+            maxSum = std::max(maxSum,sum-minSum);
+            minSum = std::min(sum,minSum);
+        }
+        
+        return maxSum;
+    }
+};
