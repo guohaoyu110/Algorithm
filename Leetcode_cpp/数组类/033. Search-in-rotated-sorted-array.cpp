@@ -1,3 +1,5 @@
+//用二分法的题目关键是找到上下的边界！
+
 //第一种方法，非常基础，和two sum的一样
 class Solution {
 public:
