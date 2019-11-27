@@ -1,3 +1,5 @@
+/*
+//这种方法空间复杂度超过了！
 class Solution {
 public:
     int removeDuplicates(vector<int>& nums) 
@@ -19,5 +21,23 @@ public:
         }
         nums = nums1;
         return nums.size();
+    }
+};*/
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        int index = 2;
+        if (nums.size()==0)
+            return false;
+        if (nums.size()==1)
+            return nums[0];
+        for(int i=2;i<nums.size();i++)
+        {
+            if (nums[index-2]!=nums[i])
+                nums[index++]=nums[i];
+        }
+        
+        return index;
+        
     }
 };
