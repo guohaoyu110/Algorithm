@@ -1,4 +1,16 @@
 /*
+为什么return的是int值，最后得到的确是一个数组？
+—// nums is passed in by reference. (i.e., without making a copy)
+int len = removeDuplicates(nums);
+
+// any modification to nums in your function would be known by the caller.
+// using the length returned by your function, it prints the first len elements.
+for (int i = 0; i < len; i++) {
+    print(nums[i]);
+}
+
+*/
+/*
 //这种方法是基础的，最容易想到的
 class Solution {
 public:
