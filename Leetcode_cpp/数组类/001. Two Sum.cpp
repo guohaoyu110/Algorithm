@@ -23,7 +23,8 @@ public:
     {
         vector<int> res;
         unordered_map<int, int> hash；
-        for(int i=0;i<nums.size();++i){
+        for(int i=0;i<nums.size();++i)
+        {
         	int another = target-nums[i];
         	if(hash.count(another)){
         		res=vector<int>({i,hash[another]});//hash[value]=pos
