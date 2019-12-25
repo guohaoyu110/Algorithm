@@ -1,8 +1,8 @@
 #include <iostream>
 using namespace std;
 const int N = 1e6 + 10;
-int a[N], q[N], hh, tt = -1;
-
+int a[N], q[N], hh, tt = -1;//head 和 tail
+//后加入的是队尾
 
 int main()
 {
@@ -30,7 +30,8 @@ int main()
             -- tt;
         q[++ tt] = i;
         if (i + 1 >= k) 
-            printf("%d ", a[q[hh]]);
+            //printf("%d ", a[q[hh]]);
+            cout<< a[q[hh]]<<" ";
     }
     return 0;
 }
