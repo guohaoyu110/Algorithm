@@ -26,3 +26,31 @@ public:
         return head;
     }
 };
+
+//第二种方法
+class Solution {
+public:
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
+        
+        ListNode* dummyHead = new ListNode(0);
+        dummyHead->next = head;
+        
+        ListNode* p = dummyHead;
+        ListNode* cur = head;
+        while(n--)
+        {
+            cur = cur->next;
+        }
+        ListNode* q = cur;
+        while(q != NULL)
+        {
+            p = p->next;
+            q = q->next;
+        }
+        
+        ListNode* delNode = p->next;
+        p->next = delNode->next;
+        delete delNode;
+        return dummyHead->next;
+    }
+};
