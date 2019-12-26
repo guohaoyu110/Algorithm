@@ -10,17 +10,19 @@ int main()
     ios::sync_with_stdio(false);
     int n,k;
     cin>>n>>k;
+    //得出最小元素
     for(int i=0;i<n;i++)
     {
         cin>>a[i];
-        if (i-k+1>q[hh]) 
+        if (hh<=tt&&i-k+1>q[hh]) 
             ++hh; // hh+1
         while(hh<=tt&&a[i]<=a[q[tt]])
-            --tt;
+            --tt; //把它删掉
         q[++tt] = i;
         if (i+1>=k) cout<<a[q[hh]]<<" ";
     }
     cout<<endl;
+    //得出最大元素
     hh = 0, tt = -1;
     for (int i = 0; i < n; ++ i)
     {
