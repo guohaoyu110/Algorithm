@@ -11,6 +11,7 @@
 class Solution {
 public:
     ListNode* removeNthFromEnd(ListNode* head, int n) {
+        //这种解法就是只扫描一遍，用两个指针！
         auto p1 = head, p2 = head;
         for (int i=0;i<n;i++)
         {
