@@ -1,5 +1,4 @@
-/*
-**
+/**
  * Definition for singly-linked list.
  * struct ListNode {
  *     int val;
@@ -9,14 +8,17 @@
  */
 class Solution {
 public:
-    ListNode* removeElements(ListNode* head, int val) {
-        //auto dummy = new ListNode(-1);
-        //auto p = dummy;
-        while(head != NULL)
-        {
-            
+    ListNode* deleteDuplicates(ListNode* head) {
+        if (head == NULL) return NULL;
+        auto node = head;
+        while(node->next!=NULL){
+            if (node->val == node->next->val)
+                node->next = node->next->next;
+            else
+                node = node->next;
         }
-        
-        
+
+        return head;
     }
+    //return head;
 };
