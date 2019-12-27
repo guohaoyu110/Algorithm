@@ -27,7 +27,7 @@ public:
     }
 };
 
-//第二种方法
+//第二种方法，我不太喜欢这种方法！
 class Solution {
 public:
     ListNode* removeNthFromEnd(ListNode* head, int n) {
@@ -52,5 +52,30 @@ public:
         p->next = delNode->next;
         delete delNode;
         return dummyHead->next;
+    }
+};
+
+//另外一个别人写的方法，和第一种方法比较接近
+class Solution {
+public:
+    ListNode* FindKthToTail(ListNode* pListHead, int k) {
+        if(pListHead == NULL || k == 0){
+            return NULL;
+        }
+        ListNode *pAhead = pListHead;
+        ListNode *pBehind = pListHead;
+        for(int i = 0; i < k - 1; i++){
+            if(pAhead->next != NULL){
+                pAhead = pAhead->next;
+            }
+            else{
+                return NULL;
+            }
+        }
+        while(pAhead->next != NULL){
+            pAhead = pAhead->next;
+            pBehind = pBehind->next;
+        }
+        return pBehind;
     }
 };

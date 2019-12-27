@@ -8,6 +8,7 @@
  */
 //这个有点类似于归并排序那种
 //不需要先合并，然后再排序；可以用两个指针，先指着开头的位置，这个复杂度是线性的！
+
 class Solution {
 public:
     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
