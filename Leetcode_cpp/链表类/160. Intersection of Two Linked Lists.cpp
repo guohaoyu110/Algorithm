@@ -24,12 +24,19 @@ public:
         if (p1!=p2) return NULL;
 
         if (len1 > len2){
-
+            for(int i=0;i<len1-len2;i++)
+                headA = headA->next;
         }
         else if (len2 > len1){
-
+            for(int i=0;i<len2-len1;i++)
+                headB = headB->next;
         }
-        
+        while(headA!=headB){
+            headA = headA->next;
+            headB = headB->next;
+        }
+        return headA;
+
 
     }
 };
