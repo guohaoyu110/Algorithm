@@ -23,24 +23,26 @@ public:
         int len2;
         if(len % 2 == 0) len2 = len / 2;
         else len2 = (len + 1) / 2;
+        
         p = head;
         for(int i = 1; i <= len2; ++i)
             p = p->next;
 
-        ListNode* b = nullptr; // 从p出开始断开，翻转
+        ListNode* prev = nullptr; // 从p出开始断开，翻转
         while(p)
         {
+            //tmp记录下一个节点，p是当前节点
             ListNode* tmp = p->next;
-            p->next = b;
-            b = p;
+            p->next = prev;
+            prev = p;
             p = tmp;
         }
         // 前后段比较
         p = head;
-        while(b != NULL && p != NULL) // 后半段与前半段比，要么相等，要么短一个长度
+        while(prev != NULL && p != NULL) // 后半段与前半段比，要么相等，要么短一个长度
         {
-            if(b->val != p->val) return false;
-            b = b->next;
+            if(prev->val != p->val) return false;
+            prev = prev->next;
             p = p->next;
         }
         return true;
