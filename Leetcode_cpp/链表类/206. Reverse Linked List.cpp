@@ -20,6 +20,7 @@ public:
             head = tmp;
             //这个思维还是精巧的，多看看这道题目！
         }
+        
         return prev;
 
     }
