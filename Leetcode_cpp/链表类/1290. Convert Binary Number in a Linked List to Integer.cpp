@@ -20,6 +20,7 @@ public:
         //len得到这个链表总的节点数
         //auto p = head;
         if (p == NULL) return NULL;
+        
         for(int i = len-1;i>=0;i--){
             sum += (p->val)*pow(2,i);
             p = p->next;
