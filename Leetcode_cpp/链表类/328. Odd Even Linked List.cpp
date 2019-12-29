@@ -9,6 +9,8 @@
 class Solution {
 public:
     ListNode* oddEvenList(ListNode* head) {
+        auto p = head;
         
+
     }
 };

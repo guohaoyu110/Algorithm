@@ -6,6 +6,7 @@
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
+//reverse函数这个要当做常态化的处理，因为实在太常用了！
 class Solution {
 public:
     ListNode* reverseList(ListNode* head) {
