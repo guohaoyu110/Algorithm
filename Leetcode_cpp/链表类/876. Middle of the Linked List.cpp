@@ -18,8 +18,6 @@ public:
             second = second->next;
             first = first->next->next;
         }
-        //return slow;
-
         return second;
     }
 };
