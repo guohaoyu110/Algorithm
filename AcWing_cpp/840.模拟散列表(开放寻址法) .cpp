@@ -1,37 +1,35 @@
 #include <iostream>
+#include <cstring>
+#include <cstdio>
 using namespace std;
-const int N = 1e5+10;
-int h[N],e[N],ne[N],idx;
+const int N = 200003;//一定要找一个在这个大概数据范围的质数
 
-//向哈希表中插入一个数
-void insert(int x){
-    
-}
-
-//在哈希表中查询某个数是否存在
-bool find (int x){
-
+int h[N],null = 0x3f3f3f3f;
+//如果x在哈希表中，返回x的下标；如果x不在哈希表中，返回x应该插入的位置
+int find(int x)
+{
+    int t = (x%N+N)%N;
+    while(h[t]!=null && h[t]!=x ){
+        t++;
+        if (t== N) t = 0;//这个是循环的
+    }
+    return t;
 }
 
 int main(){
-    int m;
+    int m,x;
+    ios::sync_with_stdio(false);
     cin>>m;
+    memset (h,0x3f,sizeof(h));
     while(m--){
         char op;
-        if (op == 'I')
-        {
-            int x;
-            cin>>x; 
-            insert(x);
-        }
-        else if (op == 'Q')
-        {
-            int x;
-            cin>>x;
-            find(x);
+        cin>>op>>x;
+        int k = find(x);
+        if (op == 'I') h[k] = x;
+        else if (op == 'Q') {
+            if (h[k]!=null) cout<<"Yes"<<endl;
+            else cout<<"No"<<endl;
         }
     }
-
-
     return 0;
 }
