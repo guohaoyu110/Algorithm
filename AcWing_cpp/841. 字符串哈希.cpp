@@ -34,6 +34,7 @@ int main()
 }
 '''
 // 之前那种两种循环的复杂度太高，可以用哈希的方式
+//当我们需要快速判断两个字符串是不是相等，就可以用这种做法！
 #include <iostream>
 #include <cstring>
 using namespace std;
@@ -54,7 +55,9 @@ int main()
     int n,m;
     cin>>n>>m;
     
-    scanf("%s",str+1);
+    scanf("%s",str+1);//输入str第一个元素之后的字符串，就是不是从0开始读，从1开始读
+    //string类型的话，全部都是从0开始读入的。
+    //理解为从str[1]开始往后读，全部都是读进去的！
     p[0] = 1;
     for (int i = 1;i<=n;i++)
     {
