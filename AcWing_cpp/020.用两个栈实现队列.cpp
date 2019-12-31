@@ -12,7 +12,8 @@ public:
     }
     
     void copy(stack<int>&a,stack<int>&b){
-        while(a.size()){
+        //这里的&符号特别重要，不是只复制数值，而是每个地址都要复制进去！
+        while(a.size()){//&符号是取a的地址
             b.push(a.top());
             a.pop();
         }
@@ -23,7 +24,7 @@ public:
         copy(stk,cache);
         int number = cache.top();
         cache.pop();
-        //stk.empty();
+        stk.empty();//这一步是可做可不做的
         copy(cache,stk);
         return number;
     }
