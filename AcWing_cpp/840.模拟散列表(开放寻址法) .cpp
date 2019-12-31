@@ -22,7 +22,9 @@ int main(){
     int m,x;
     ios::sync_with_stdio(false);
     cin>>m;
-    memset (h,0x3f,sizeof(h));
+    memset (h,0x3f,sizeof(h)); //memset是按照字节来的，所以每个字节都是Ox3f，一共四个字节都是0x3f
+    //所以这里不能直接赋值一个9位数  
+    //int是4个字节，char是1个字节
     while(m--){
         char op;
         cin>>op>>x;
