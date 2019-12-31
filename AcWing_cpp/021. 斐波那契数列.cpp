@@ -31,7 +31,7 @@ public:
         return v[n];
     }
 };
-//方法三：694ms
+//方法三：694ms 用for循环，每一步计算出来，速度会快很多
 class Solution {
 public:
     int v[100000] = { 0 };
