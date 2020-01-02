@@ -16,3 +16,4 @@ public:
         return left>right?left+1:right+1;
     }
 };
+
