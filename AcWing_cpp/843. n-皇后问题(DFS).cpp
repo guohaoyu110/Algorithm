@@ -22,7 +22,7 @@ void dfs(int u)
     //其实dfs那个u是每一列来+1遍历，i是每一行来查看
     for(int i=0;i<n;i++) //根据这个每一行来
     {
-        if (!col[i]&&!dg[u+i]&&!udg[n-u+i]) //这一列之前必须没有放过并且对角线和反对角线上也没有放过
+        if (!col[i]&&!dg[u+i]&&!udg[i-u+n]) //这一列之前必须没有放过并且对角线和反对角线上也没有放过
         {
             g[u][i] = 'Q';
             col[i] = dg[u+i] = udg[n-u+i] = true;
@@ -44,6 +44,7 @@ int main()
 }
 
 //方法二，第二种使用DFS的情况
+//第二种方法的效率比第一种方法要低一些
 #include <iostream>
 using namespace std;
 
@@ -51,13 +52,13 @@ const int N = 20;
 
 int n;
 char g[N][N];
-bool col[N], dg[N], udg[N];
+bool row[N],col[N], dg[N], udg[N];
 
-void dfs(int x,int y,int s)
+void dfs(int x,int y,int s) //s是表示皇后的个数
 {
     if (s>n) return;
     if (y==n) y=0,x++;
-    if (x == n)
+    if (x == n) //还是按照一列一列的来放皇后的
     {
         if (s == n)
         {
@@ -66,9 +67,10 @@ void dfs(int x,int y,int s)
         }
         return;
     }
-     g[x][y] = '.';
+    g[x][y] = '.';
+    //不放皇后
     dfs(x, y + 1, s);
-
+    //放皇后
     if (!row[x] && !col[y] && !dg[x + y] && !udg[x - y + n])
     {
         row[x] = col[y] = dg[x + y] = udg[x - y + n] = true;
