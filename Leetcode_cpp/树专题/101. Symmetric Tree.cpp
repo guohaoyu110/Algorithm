@@ -25,6 +25,7 @@ public:
         if (root == NULL) return true;
         return dfs(root->left,root->right);
     }
+    //要判断的话，直接写一个dfs函数
     bool dfs (TreeNode* p, TreeNode* q){
         if (!p||!q) return !p && !q;
         //if (p->val == q->val)
