@@ -1,6 +1,6 @@
 class Solution {
 public:
-    vector<vector<int>> generate(int numRows) {
+    int climbStairs(int n) {
         
     }
 };
