@@ -27,6 +27,6 @@ public:
 
             cur = first;
         }
-        return dummy->next;
+        return dummy->next;  //比如head是1，但是head在这个里面是第二个节点
     }
 };
