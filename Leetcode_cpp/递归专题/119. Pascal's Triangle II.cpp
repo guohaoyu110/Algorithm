@@ -16,4 +16,20 @@ public:
     }
 };
 
-//方法二，
+//方法二，不能用递归的方法，时间太长了！
+//从本质上去理解，杨辉三角的本质就是组合数！
+class Solution {
+public:
+    vector<int> getRow(int rowIndex) {
+        vector<int> ans;
+        ans.push_back(1);
+        long long val = 1;
+        for(int i = rowIndex;i>=1;i--){
+            val *= i;
+            val /= rowIndex - i + 1;
+            ans.push_back(val);
+        }
+        //ans.push_back(1);
+        return ans;
+    }
+};
