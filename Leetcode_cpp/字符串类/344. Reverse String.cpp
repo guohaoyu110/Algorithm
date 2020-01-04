@@ -1,3 +1,4 @@
+//方法一，利用swap库函数
 class Solution {
 public:
     void reverseString(vector<char>& s) {
@@ -12,6 +13,14 @@ public:
         }
         
         return ;
+        
+    }
+};
+
+//方法二，利用递归的原理去做这道题目
+class Solution {
+public:
+    void reverseString(vector<char>& s) {
         
     }
 };
