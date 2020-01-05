@@ -2,15 +2,17 @@ class Solution {
 public:
     int numTrees(int n) {
         //这种题目还是有规律可循的，多写几个找规律会比较好一些，直接看看不出来题目的意思！
+        //这个问题可以分解成规模较小的子问题。因此，我们可以存储并复用子问题的解，而不是递归的解决这些子问题，这就是动态规划。
         int f[n+1];
-        memset(f,0,sizeof(int)*(n+1));
-        f[0] = 1;
-        for(int i = 1;i<=n;i++){
-            for(int j=0;j<i;j++){
-                f[i] += f[j]*f[i-1-j];
+        memset (f,0,sizeof(int)*(n+1));
+        //用动态规划的思维来理解，比如一遍n=4的时候，顶点是1，左边是0个，右边是三个，所以f[0]*f[3];
+        f[0] = 1; f[1] = 1;
+        for(int i =2;i<=n;i++){
+            for(int j=1;j<=i;j++){
+                f[i] += f[j-1]*f[i-j];
             }
-
         }
         return f[n];
+
     }
 };
