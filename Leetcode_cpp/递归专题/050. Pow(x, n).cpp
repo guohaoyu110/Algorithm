@@ -1,4 +1,5 @@
 //思路是对的，大部分的测试用例也是对的，但是对于极端的进度情况不能通过
+'''
 class Solution {
 public:
     double myPow(double x, int n) {
@@ -15,11 +16,11 @@ public:
         return 0.0;
     }
 };
-
+'''
 
 //正确解答
 //还是用递归的方法来处理这道题目；这个是递归快速幂的方法
-//直接用n/2的方法，对降低时间复杂度很好！
+//直接用n/2的方法，对降低时间复杂度很好！之前的那种方法一个一个减，时间复杂度实在太高了！
 class Solution {
 public:
     double fastPow(double x, long long n) {
