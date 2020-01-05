@@ -10,9 +10,8 @@
 class Solution {
 public:
     int minDepth(TreeNode* root) {
-        if (root==NULL) return NULL;
-        int left = minDepth(root->left);
-        int right = minDepth(root->right);
-        //return left<right?left:right;
+        if (!root) return NULL;
+        int count = 0;
+        
     }
 };
