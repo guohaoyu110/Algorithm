@@ -51,3 +51,30 @@ public:
         return depth(root) != -1;
     }
 };
+
+//yxc的方法，仅供参考！
+class Solution {
+public:
+    bool isBalanced(TreeNode* root) {
+        int h;
+        return dfs(root, h);
+    }
+
+    bool dfs(TreeNode*root, int &height)
+    {
+        if (!root)
+        {
+            height = 0;
+            return true;
+        }
+
+        int left, right;
+        if (!dfs(root->left, left)) return false;
+        if (!dfs(root->right, right)) return false;
+
+        height = max(left, right) + 1;
+
+        return abs(left - right) <= 1;
+    }
+};
+
