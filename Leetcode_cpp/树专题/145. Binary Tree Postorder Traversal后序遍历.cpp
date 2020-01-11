@@ -11,6 +11,7 @@ class Solution {
 public:
     vector<int>post;
     vector<int> postorderTraversal(TreeNode* root) {
+        if (!root) return vector<int>{};
         if (root){
             postorderTraversal(root->left);
             postorderTraversal(root->right);
