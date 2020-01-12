@@ -23,6 +23,23 @@
 class Solution {
 public:
     vector<vector<int>> levelOrder(TreeNode* root) {
-        
+        vector<vector<int>> res;
+        if (!root) return res;
+        vector<TreeNode*>level;
+        level.push_back(root);
+        res.push_back()
+        while(true){
+            vector<TreeNode*>newlevel;
+            for(auto u :level){
+                if (u->left) newlevel.push_back(u->left);
+                if (u->right) newlevel.push_back(u->right);
+            }
+            if (newlevel.size()){
+                res.push_back()
+                level = newlevel;
+            }
+            else break;
+        }
+        return res;
     }
 };
