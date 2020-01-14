@@ -20,15 +20,25 @@
 以免后面需要进行线行搜索，这样每次递归中就只需要常量操作就可以完成对根的确定和左右子树的分割。
 
 '''
+//为什么需要建立一个哈希表呢？
+//找到一个根，和这个根所对应的坐标
 class Solution {
 public:
+    unordered_map<int,int>pos;
     TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
-        int pl = preorder[0], pr = preorder[preorder.size()-1];
-        int il = inorder[0] , ir = inorder[inorder.size()-1];
-        dfs(preorder,inorder,pl,pr,il,ir);
+        int n = preorder.size();
+        for(int i=0;i<n;i++){
+            pos[inorder[i]] = i;
+        }
+        return dfs(preorder,inorder,0,n-1,0,n-1);//在这里定义一个递归的起点
     }
     TreeNode* dfs(vector<int>&pre, vector<int>&in, int pl, int pr, int il, int ir){
         //先根据先序遍历的第一个数字来判断，将中序序列分成左子树和右字数。
-
+        if (pl > pr) return NULL;
+        int k = pos[pre[pl]] - il;//找到先序序列中的第一个数字，在中序序列中的位置
+        TreeNode* root = new TreeNode(pre[pl]);//不断的创建新节点，去构成一整课的树
+        root->left = dfs(pre,in,pl+1,pl+k,il,il+k-1);//只要找出第一个的规律，后面的规律都是递归，类似的
+        root->right = dfs(pre,in,pl+k+1,pr,il+k+1,ir);
+        return root; 
     }
 };
