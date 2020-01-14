@@ -67,17 +67,29 @@ public:
  */
 class Solution {
 public:
-    void bfs(TreeNode* root, vector<vector<int>>& res){
-        queue<TreeNode*>s;
-        s.push(root);
+    void bfs(TreeNode* root,vector<vector<int>>& res){
+        queue<TreeNode*>s;//S是一个队列，先进先出，里面存的是指针类型
+        //定义一个队列，数据类型是树的类型
+        s.push(root);//将头结点添加到队列
         s.push(NULL);
-        while(s.front()!=NULL){
+        while(s.front()){//每一层都要建立一个新的vector数组
             vector<int>t;
+            auto p = s.front();s.pop();//取出节点
+            while(p){
+                t.push_back(p->val);
+                if (p->left) s.push(p->left);
+                if (p->right) s.push(p->right);
+                p=s.front();s.pop();//取出该层所有节点
+            }
+            s.push(NULL);
+            res.push_back(t);
 
         }
     }
 
     vector<vector<int>> levelOrder(TreeNode* root) {
-        
+        vector<vector<int>>res;
+        bfs(root,res);
+        return res;
     }
 };

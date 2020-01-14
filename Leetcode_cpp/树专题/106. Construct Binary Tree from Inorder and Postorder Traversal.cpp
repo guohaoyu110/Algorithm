@@ -13,6 +13,10 @@ class Solution {
 public:
     TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
         vector<int>result,left,right;
+
+
+
         
     }
+    TreeNode* dfs(vector<int>&in, vector<int>&post, int il, int ir, int pl, int pr){
 };
