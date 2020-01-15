@@ -49,25 +49,36 @@ public:
 第三步，遍历到叶节点层，算法结束；
 时间复杂度分析：每个节点仅会遍历一次。对于每个节点，遍历时维护下一层链表的时间复杂度是 O(1)，所以总时间复杂度是 O(n)。
 '''
+//方法一：一层一层的来做这件事情
+//为什么这个是先connect(root->right) 然后 connect(root->left)
 class Solution {
 public:
     Node* connect(Node* root) {
-        while(root){
-            Node* dummy = new Node(0);
-            Node* tail = dummy;
-            while(root){
-                if (root->left){
-                    tail->next = root->left;
-                    tail = tail->next;
-                }
-                if (root->right){
-                    tail->next = root->right;
-                    tail = tail->next;
-                }
-                root = root->next;
+        if (!root) return NULL;
+        Node * node = root->next;
+        while(node){
+            if(node->left){
+                node = node->left;
+                break;
             }
-            tail->next = 0;
-            root = dummy->next;
+            else if (node->right){
+                node = node->right;
+                break;
+            }
+            else {
+                node = node->next;
+            }
         }
+        if (root->left && root->right){
+            root->left->next = root->right;
+            root->right->next = node;
+        }
+        else if (!root->left && root->right) root->right->next = node;
+        else if (root->left&&!root->right) root->left->next = node;
+        connect(root->right);
+        connect(root->left);
+        return root;     
     }
 };
+
+//方法二：用队列的方法
