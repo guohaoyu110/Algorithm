@@ -49,7 +49,7 @@ public:
 第三步，遍历到叶节点层，算法结束；
 时间复杂度分析：每个节点仅会遍历一次。对于每个节点，遍历时维护下一层链表的时间复杂度是 O(1)，所以总时间复杂度是 O(n)。
 '''
-//方法一：一层一层的来做这件事情
+//方法一：一层一层的来做这件事情，这个是典型的用递归的方法
 //为什么这个是先connect(root->right) 然后 connect(root->left)
 class Solution {
 public:
@@ -81,4 +81,53 @@ public:
     }
 };
 
-//方法二：用队列的方法
+//方法二：用队列的方法，迭代的方法
+'''
+队列是为了维护先后关系
+但是先后关系本来就存在了next里
+所以可以不使用队列
+'''
+class Solution {
+public:
+    Node* connect(Node* root) {
+        if (!root)  return NULL;
+        queue q;
+        q.push(root);
+        while(!q.empty()){
+            Node* cur = NULL;
+            int size = q.size();
+            //for(int i =0)
+        }  
+    }
+};
+
+//方法三，使用next指针来代替队列，不用queue
+Node* connect(Node* root) {
+        Node *last = root;
+        while(last != NULL){
+            // 获得队首元素
+            while(last && last->left == NULL && last->right == NULL)last = last->next;
+            if(last == NULL)break;
+            Node *cur = NULL;
+            // 遍历队列
+            for(Node *i = last;i != NULL;i = i->next){
+                // 进行push和pop操作
+                if(i -> left){
+                    if(cur != NULL){
+                        cur->next = i->left;
+                    }
+                    cur = i->left;
+                }
+                if(i -> right){
+                    if(cur != NULL){
+                        cur->next = i->right;
+                    }
+                    cur = i->right;
+                }
+            }
+            // 更新队首
+            last = last->left ? last->left : last->right;
+        }
+        return root;
+    }
+
