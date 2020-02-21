@@ -47,7 +47,8 @@ public:
         return s.empty()&&Mystack.empty();
     }
 private: 
-    stack<int> s,Mystack;
+    stack<int> s,Mystack; 
+    // 碰到所有这种题目，用到两个stack或者两个queue的，全部定义在private里面！
 };
 
 /**
