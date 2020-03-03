@@ -6,6 +6,7 @@ public:
         dfs(root);
         return root;
     }
+    
     void dfs(TreeNode* node){
         if (node == NULL) return;
         TreeNode* left = node->left, *right = node->right;
