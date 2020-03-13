@@ -20,6 +20,34 @@
 
 时间复杂度分析：树中每个节点仅会进队出队一次，所以时间复杂度是 O(n) 。
 '''
+//一般情况下的BFS遍历方法
+void BST::levelOrder(TreeNode* root){
+  if (root == NULL)  {
+    std::cout << "BST's empty!"<<std::endl;
+    return; 
+  }
+  // Create an empty queue for level order tarversal 
+  std::queue<TreeNode *> q; 
+  // Enqueue Root and initialize height 
+  q.push(root); 
+  while (q.empty() == 0) { 
+    // Print front of queue and remove it from queue 
+    TreeNode *node = q.front(); 
+    std::cout << node->val << " "; 
+    q.pop(); 
+  
+    // Enqueue left child 
+    if (node->left != NULL) 
+      q.push(node->left); 
+  
+    //Enqueue right child 
+    if (node->right != NULL) 
+      q.push(node->right); 
+  } 
+}
+
+
+
 //方法一：这个思路还是非常简洁明了的
 class Solution {
 public:
